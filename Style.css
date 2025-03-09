@@ -1,0 +1,143 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+}
+
+#login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Reduced gap for better alignment */
+    padding: 20px;
+    min-height: 100vh; /* Ensure the content is centered vertically */
+}
+
+#stats-container,
+#quiz-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 350px; /* Medium height for both divs */
+}
+
+#stats-container {
+    width: 180px; /* Reduced width to save space but prevent text wrapping */
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+#quiz-content {
+    flex: 1; /* Occupy remaining space dynamically */
+    max-width: 650px; /* Allows it to expand more */
+}
+
+/* MCQ Answer Buttons (Kept Same as Before) */
+#options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#options button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Navigation buttons (Previous, Next, Submit) */
+#navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 420px; /* Increased width for spacing */
+    margin-left: auto;
+    margin-right: auto;
+    gap: 15px; /* Added space between buttons */
+}
+
+#heading-content h2 {
+    margin: 0 0 15px 0; /* Space below heading */
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2px solid #4facfe; /* Stylish underline */
+    padding-bottom: 5px;
+}
+
+#navigation button {
+    width: 130px; /* Equal width for all navigation buttons */
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.1s;
+}
+
+#navigation button:hover {
+    background: #0056b3;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+#navigation button:disabled {
+    background: gray;
+    cursor: not-allowed;
+    transform: none; /* Prevents hover effect when disabled */
+}
+
+.correct {
+    background: green !important;
+    color: white;
+}
+
+.wrong {
+    background: red !important;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background: #0056b3;
+}
