@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Quiz</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="login-container">
         <h2>Welcome to the Quiz</h2>
-        <input type="text" id="username" placeholder="Enter your name">
+        <input type="text" id="username" placeholder="Enter your name" autofocus>
         <button onclick="startQuiz()">Start Quiz</button>
     </div>
 
@@ -18,32 +18,33 @@
         <div id="main-container">
             <div id="stats-container">
                 <h3>📊 Quiz Stats</h3>
-                <p>⏳ Time Left: <span id="time">30:00</span></p>
-                <p>✅ Score: <span id="score">0</span></p>
-                <p>📌 Attempted: <span id="attempted">0</span></p>
-                <p>⏳ Not Attempted: <span id="notAttempted">0</span></p>
-                <p>❓ Remaining: <span id="remaining">0</span></p>
-                <p>✔️ Correct: <span id="correct">0</span></p>
-                <p>❌ Wrong: <span id="wrong">0</span></p>
+                <p> Time Left: <span id="time">30:00</span></p>
+                <p> Score: <span id="score">0</span></p>
+                <p> Attempted: <span id="attempted">0</span></p>
+                <p> Not Attempted: <span id="notAttempted">0</span></p>
+                <p> Remaining: <span id="remaining">0</span></p>
+                <p> Correct: <span id="correct">0</span></p>
+                <p> Wrong: <span id="wrong">0</span></p>
             </div>
             
             <div id="quiz-content">
-
-<div id="heading-content">
-    <h2>Question</h2>
-</div>
+                <div id="heading-content">
+                    <h2>Question</h2>
+                </div>
                 <h2 id="question"></h2>
                 <div id="options"></div>
                 <div id="navigation">
-                    
                     <button onclick="prevQuestion()" id="prev">Previous</button>
-<button onclick="nextQuestion()" id="next">Next</button>
-<button onclick="submitQuiz()" id="submit">Submit</button>
+                    <button onclick="nextQuestion()" id="next">Next</button>
+                    <button onclick="submitQuiz()" id="submit">Submit</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div id="result-container" class="hidden"><div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
