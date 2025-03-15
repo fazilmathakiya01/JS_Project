@@ -10,7 +10,7 @@ let username = "";
 let timerInterval;
 
 // Fetch questions from API
-async function fetchQuestions() {
+(async function fetchQuestions() {
     try {
         let response = await fetch("https://opentdb.com/api.php?amount=30&type=multiple");
         let data = await response.json();
@@ -31,7 +31,7 @@ async function fetchQuestions() {
     } catch (error) {
         console.log("Error fetching questions:", error);
     }
-}
+})();
 
 // Start quiz
 function startQuiz() {
@@ -50,7 +50,7 @@ function startQuiz() {
 }
 
 // Timer function
-function startTimer() {
+(function startTimer() {
     clearInterval(timerInterval); 
     timer = 1800;
 
@@ -64,7 +64,7 @@ function startTimer() {
             endGame();
         }
     }, 1000);
-}
+})();
 
 // Load question
 function loadQuestion() {
@@ -109,6 +109,12 @@ function checkAnswer(button, selected, correctAnswer) {
     } else {
         button.style.backgroundColor = "red";
         wrong++;
+	let trButtons = document.querySelectorAll("#options button");
+    	trButtons.forEach(btn => {
+	if(btn.innerHTML === correctAnswer){
+		btn.style.backgroundColor = "green";
+	}
+      })
     }
 
     userAnswers[currentIndex] = { selected, correct: isCorrect };
@@ -153,18 +159,21 @@ function submitQuiz() {
 // End game
 function endGame() {
     clearInterval(timerInterval);
-    document.getElementById("quiz-container").innerHTML = `
-        <h2>Quiz Completed!</h2>
-        <p><strong>Name:</strong> ${username}</p>
-        <p><strong>Final Score:</strong> ${score}</p>
-        <p><strong>Attempted Questions:</strong> ${attempted}</p>
-        <p><strong>Correct Answers:</strong> ${correct}</p>
-        <p><strong>Wrong Answers:</strong> ${wrong}</p>
-        <button onclick="restartQuiz()">Restart Quiz</button>
-    `;
-}
 
-// Restart quiz
-function restartQuiz() {
-    location.reload(); // Reload the page to restart
+		$("#quiz-container").hide();
+
+		let ResultHTML = `
+       		<h2>Quiz Completed!</h2>
+       		<p><strong>Name:</strong> ${username}</p>
+       		<p><strong>Final Score:</strong> ${score}</p>
+       		<p><strong>Attempted Questions:</strong> ${attempted}</p>
+       		<p><strong>Correct Answers:</strong> ${correct}</p>
+       		<p><strong>Wrong Answers:</strong> ${wrong}</p>
+         <button onclick="restartQuiz()">Restart Quiz</button>
+  		`;
+		$("#result-container").append(ResultHTML);
+   $("#result-container").show();
 }
+  function restartQuiz(){
+     location.reload();
+  }
