@@ -37,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 350px; /* Medium height for both divs */
+    height: 380px; /* Medium height for both divs */
 }
 
 #stats-container {
