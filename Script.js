@@ -10,7 +10,7 @@ let username = "";
 let timerInterval;
 
 // Fetch questions from API
-async function fetchQuestions() {
+(async function fetchQuestions() {
     try {
         let response = await fetch("https://opentdb.com/api.php?amount=30&type=multiple");
         let data = await response.json();
@@ -31,10 +31,10 @@ async function fetchQuestions() {
     } catch (error) {
         console.log("Error fetching questions:", error);
     }
-}
+})();
 
 // Start quiz
-(function startQuiz() {
+function startQuiz() {
     username = document.getElementById("username").value.trim();
     
     if (!username) {
@@ -45,9 +45,8 @@ async function fetchQuestions() {
     document.getElementById("login-container").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
 
-    fetchQuestions();
     startTimer();
-})();
+}
 
 // Timer function
 function startTimer() {
